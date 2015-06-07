@@ -16,7 +16,7 @@ Scripts to be written in `object-detector` folder
 2. `train-model.py`
 3. `sliding-window.py`
 
-# Useful tutorials
+## Useful tutorials
 
 1. [Histogram of Oriented Gradients and Object Detection](http://www.pyimagesearch.com/2014/11/10/histogram-oriented-gradients-object-detection/)
 2. [Image Pyramids with Python and OpenCV](http://www.pyimagesearch.com/2015/03/16/image-pyramids-with-python-and-opencv/)

@@ -1,20 +1,58 @@
 # object-detector
-Object Detector using (LBP/HOG) as descriptor and (Logistic Regression/Linear SVM) as classifier.
+Object Detector using HOG as descriptor and Linear SVM as classifier. | [Video](https://www.youtube.com/watch?v=SPXocFBjr70)
 
-## TO-DO
+## Run the code
 
-Scripts to be written in `bin` folder
+```bash
+git clone https://github.com/bikz05/object-detector.git
+cd object-detector/bin
+test-object-detector
+```
 
-1. `bin/test-image`
-2. `bin/test-folder`
-3. `bin/train-detector`
-4. `bin/extract-features`
+_The `test-object-detector` will download the [UIUC Image Database for Car Detection](https://cogcomp.cs.illinois.edu/Data/Car/) and train a classifier to detect cars in an image. The SVM model files will be stored in `data/models`, so that they can be resused later on._
 
-Scripts to be written in `object-detector` folder
+# About the modules
 
-1. `extract-feature.py`
-2. `train-model.py`
-3. `sliding-window.py`
+1. `extract-features.py` -- This module is used to extract HOG features of the training images.
+2. `train-classifier.py` -- This module is used to train the classifier.
+3. `nms.py` -- This module performs Non Maxima Suppression.
+4. `test-classifier.py` -- This module is used to test the classifier using a test image
+
+
+## Some of the results
+
+#### Test Image 1
+_Detections before NMS_
+
+![Image 1](data/images/test-im-1.png)
+
+_Detections after NMS_
+
+![](data/images/test-im-1-nms.png)
+#### Test Image 2
+_Detections before NMS_
+
+![](data/images/test-im-2.png)
+
+_Detections after NMS_
+
+![](data/images/test-im-2-nms.png)
+#### Test Image 3
+_Detections before NMS_
+
+![](data/images/test-im-3.png)
+
+_Detections after NMS_
+
+![](data/images/test-im-3-nms.png)
+#### Test Image 4
+_Detections before NMS_
+
+![](data/images/test-im-4.png)
+
+_Detections after NMS_
+
+![](data/images/test-im-4-nms.png)
 
 ## Useful tutorials
 

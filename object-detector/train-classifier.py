@@ -6,6 +6,7 @@ from sklearn.externals import joblib
 import argparse as ap
 import glob
 import os
+from config import *
 
 if __name__ == "__main__":
     # Parse the command line arguments
@@ -39,7 +40,6 @@ if __name__ == "__main__":
         clf = LinearSVC()
         print "Training a Linear SVM Classifier"
         clf.fit(fds, labels)
-        model_path = '../data/models/svm.model'
         # If feature directories don't exist, create them
         if not os.path.isdir(os.path.split(model_path)[0]):
             os.makedirs(os.path.split(model_path)[0])

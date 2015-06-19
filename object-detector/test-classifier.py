@@ -6,6 +6,7 @@ from sklearn.externals import joblib
 import cv2
 import argparse as ap
 from nms import nms
+from config import *
 
 def sliding_window(image, window_size, step_size):
     '''
@@ -43,10 +44,9 @@ if __name__ == "__main__":
     min_wdw_sz = (100, 40)
     step_size = (10, 10)
     downscale = args['downscale']
-    visualize = args['visualize']
+    visualize_det = args['visualize']
 
     # Load the classifier
-    model_path = '../data/models/svm.model'
     clf = joblib.load(model_path)
 
     # List to store the detections
@@ -65,9 +65,7 @@ if __name__ == "__main__":
             if im_window.shape[0] != min_wdw_sz[1] or im_window.shape[1] != min_wdw_sz[0]:
                 continue
             # Calculate the HOG features
-            fd = hog(im_window, orientations=9, pixels_per_cell=(8, 8),
-                    cells_per_block=(3, 3), visualise=False, normalise=True)
-            # Perform the predictions
+            fd = hog(im_window, orientations, pixels_per_cell, cells_per_block, visualize, normalize)
             pred = clf.predict(fd)
             if pred == 1:
                 print  "Detection:: Location -> ({}, {})".format(x, y)
@@ -78,7 +76,7 @@ if __name__ == "__main__":
                 cd.append(detections[-1])
             # If visualize is set to true, display the working
             # of the sliding window
-            if visualize:
+            if visualize_det:
                 clone = im_scaled.copy()
                 for x1, y1, _, _, _  in cd:
                     # Draw the detections at this scale
@@ -100,7 +98,7 @@ if __name__ == "__main__":
     cv2.waitKey()
 
     # Perform Non Maxima Suppression
-    detections = nms(detections, .3)
+    detections = nms(detections, threshold)
 
     # Display the results after performing NMS
     for (x_tl, y_tl, _, w, h) in detections:

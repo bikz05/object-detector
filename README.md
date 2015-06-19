@@ -11,13 +11,15 @@ test-object-detector
 
 _The `test-object-detector` will download the [UIUC Image Database for Car Detection](https://cogcomp.cs.illinois.edu/Data/Car/) and train a classifier to detect cars in an image. The SVM model files will be stored in `data/models`, so that they can be resused later on._
 
+* All the configurations are in the `data/config/config.cfg` configuration files. You can change it as per your need.
+
 # About the modules
 
 1. `extract-features.py` -- This module is used to extract HOG features of the training images.
 2. `train-classifier.py` -- This module is used to train the classifier.
 3. `nms.py` -- This module performs Non Maxima Suppression.
-4. `test-classifier.py` -- This module is used to test the classifier using a test image
-
+4. `test-classifier.py` -- This module is used to test the classifier using a test image.
+5. `config.py` -- Imports the configuration variables from `config.cfg`.
 
 ## Some of the results
 
@@ -62,3 +64,4 @@ _Detections after NMS_
 4. [Non-Maximum Suppression for Object Detection in Python](http://www.pyimagesearch.com/2014/11/17/non-maximum-suppression-object-detection-python/)
 5. [(Faster) Non-Maximum Suppression in Python](http://www.pyimagesearch.com/2015/02/16/faster-non-maximum-suppression-python/)
 6. [Texture Matching using Local Binary Patterns (LBP), OpenCV, scikit-learn and Python](http://hanzratech.in/2015/05/30/local-binary-patterns.html)
+7. [Detección de objetos Course by Coursera](https://www.coursera.org/course/deteccionobjetos)

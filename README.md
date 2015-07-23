@@ -13,9 +13,9 @@ test-object-detector
 
 _The `test-object-detector` will download the [UIUC Image Database for Car Detection](https://cogcomp.cs.illinois.edu/Data/Car/) and train a classifier to detect cars in an image. The SVM model files will be stored in `data/models`, so that they can be resused later on._
 
-* All the configurations are in the `data/config/config.cfg` configuration files. You can change it as per your need.
+### Configuration File
 
-Here is what the default configuration file looks like (which I have set for Car Detector)-
+All the configurations are in the `data/config/config.cfg` configuration files. You can change it as per your need. Here is what the default configuration file looks like (which I have set for Car Detector)-
 
 ```bash
 [hog]
@@ -36,7 +36,7 @@ neg_feat_ph: ../data/features/neg
 model_path: ../data/models/svm.model
 ```
 
-## About the modules
+### About the modules
 
 * `extract-features.py` -- This module is used to extract HOG features of the training images.
 * `train-classifier.py` -- This module is used to train the classifier.

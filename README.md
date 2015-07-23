@@ -3,6 +3,8 @@ Object Detector using HOG as descriptor and Linear SVM as classifier. | [Video](
 
 ## Run the code
 
+I have created a single python script that can be used to test the code. To test the code, run the lines below in your terminal.
+
 ```bash
 git clone https://github.com/bikz05/object-detector.git
 cd object-detector/bin
@@ -12,6 +14,27 @@ test-object-detector
 _The `test-object-detector` will download the [UIUC Image Database for Car Detection](https://cogcomp.cs.illinois.edu/Data/Car/) and train a classifier to detect cars in an image. The SVM model files will be stored in `data/models`, so that they can be resused later on._
 
 * All the configurations are in the `data/config/config.cfg` configuration files. You can change it as per your need.
+
+Here is what the default configuration file looks like -
+
+```bash
+[hog]
+min_wdw_sz: [100, 40]
+step_size: [10, 10]
+orientations: 9
+pixels_per_cell: [8, 8]
+cells_per_block: [3, 3]
+visualize: False
+normalize: True
+
+[nms]
+threshold: .3
+
+[paths]
+pos_feat_ph: ../data/features/pos
+neg_feat_ph: ../data/features/neg
+model_path: ../data/models/svm.model
+```
 
 # About the modules
 
